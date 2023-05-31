@@ -13,6 +13,8 @@ protocol FoodFinderServiceable {
     func getFoodList(text: String?) async -> Result<FoodItems, NetworkError>
 }
 
+
+/// We can cache the response locally to avoid multiple network callls
 struct FoodFinderService: HttpClient, FoodFinderServiceable {
     func getFoodList(text: String?) async -> Result<FoodItems, NetworkError> {
         let result = await sendRequest(endPoint: FoodieEndpoint.getSearchResults(searchText: text), responseModel: FoodItems.self)
