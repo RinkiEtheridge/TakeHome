@@ -1,0 +1,24 @@
+platform :ios, '16'
+
+# ignore all warnings from all pods
+inhibit_all_warnings!
+
+def sharedPods
+    pod 'SnapKit'
+end
+
+# Pods for Foodie
+
+target 'Foodie' do
+  sharedPods
+end
+
+
+target 'FoodieTests' do
+  sharedPods
+end
+
+target 'FoodieUITests' do
+  sharedPods
+end
+
